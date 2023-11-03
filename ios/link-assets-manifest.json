@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Anuphan-Bold.ttf",
+      "sha1": "5cf1d5e525c2455f0fa3b5d0691719e3e32cf997"
+    },
+    {
+      "path": "assets/fonts/Anuphan-ExtraLight.ttf",
+      "sha1": "fc79ff91b713dddb2d058e88bebf2e961ca2d39a"
+    },
+    {
+      "path": "assets/fonts/Anuphan-Light.ttf",
+      "sha1": "bdd62868cb44e9c9b225c6d45bb41fcb601764ee"
+    },
+    {
+      "path": "assets/fonts/Anuphan-Medium.ttf",
+      "sha1": "427786315d2b6b39a7646c164196444390e92e7d"
+    },
+    {
+      "path": "assets/fonts/Anuphan-Regular.ttf",
+      "sha1": "fa46ecec139222545b1207e293c9d43d63c4c851"
+    },
+    {
+      "path": "assets/fonts/Anuphan-SemiBold.ttf",
+      "sha1": "bc7b4290d931fe97dbe26b4d0b88c518b7344ac3"
+    },
+    {
+      "path": "assets/fonts/Anuphan-Thin.ttf",
+      "sha1": "3b22845a59cf882b2b330ab074b12330a80d4cac"
+    }
+  ]
+}
