@@ -1,10 +1,9 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { COLORS, FONTS, ROUTES } from '../constants';
-import { ByPallet_Screen, ByRunning_Screen, FilmSelect_Screen, Solvent_Screen } from '../screens';
+import { Barcode_Screen, ByPallet_Screen, ByRunning_Screen, FilmSelect_Screen, Solvent_Screen } from '../screens';
 import styles from '../styles/StyleSheets';
 import Icon from 'react-native-vector-icons/Ionicons';
-
 
 const Tab = createBottomTabNavigator();
 
@@ -13,14 +12,15 @@ const BottomTabNavigator = () => {
         <Tab.Navigator
             screenOptions={({ route }) => ({
                 //ซ่อน header stack.Navigator
-                //headerShown:false,
-                tabBarStyle: styles.tabBarStyle,
+                // headerShown:false,
                 headerStyle: {
                     backgroundColor: COLORS.primary
                 },
+                tabBarStyle: styles.tabBarStyle,
                 tabBarActiveTintColor: COLORS.primary,
                 tabBarInactiveTintColor: COLORS.grey60,
                 tabBarLabelStyle: FONTS.h5,
+                tabBarHideOnKeyboard: true,
                 tabBarIcon: ({ color, size, focused }) => {
                     let iconName;
                     if (route.name === ROUTES.BY_RUNNING) {
@@ -34,15 +34,14 @@ const BottomTabNavigator = () => {
                     }
                     return <Icon name={iconName} size={size} color={color} />;
                 },
-
-
             })}
         >
             <Tab.Screen name={ROUTES.BY_RUNNING} component={ByRunning_Screen}
                 options={{
-                    headerTitle: 'Move Location',
-                    title: 'Running'
-                }} />
+                    headerTitle: 'Running',
+                    title: 'Running',
+                }}
+            />
             <Tab.Screen name={ROUTES.BY_PALLET} component={ByPallet_Screen}
                 options={{
                     headerTitle: 'Move Pallet',
@@ -57,10 +56,8 @@ const BottomTabNavigator = () => {
                 options={{
                     headerTitle: 'Issue Slovent',
                     title: 'Solvent'
-                
+
                 }} />
-
-
         </Tab.Navigator>
     )
 }

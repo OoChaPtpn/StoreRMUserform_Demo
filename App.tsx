@@ -7,8 +7,8 @@ import BottomTabNavigator from './assets/navigations/BottomTabNavigator';
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <StackNavigator /> */}
-      <BottomTabNavigator />
+      <StackNavigator />
+      {/* <BottomTabNavigator /> */}
     </NavigationContainer>
 
 

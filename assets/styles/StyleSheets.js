@@ -8,26 +8,18 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
-  // hBlack: {
-  //   fontFamily: 'Anuphan-Bold',
-  //   color: COLORS.black
-  // },
-  // hWhite: {
-  //   fontFamily: 'Anuphan-Bold',
-  //   color: COLORS.white
-  // },
-  // bobyBlack: {
-  //   fontFamily: 'Anuphan-Regular',
-  //   color: COLORS.black
-  // },
-  // bobyWhite: {
-  //   fontFamily: 'Anuphan-Regular',
-  //   color: COLORS.white
-  // },
-  // bobyWhite: {
-  //   fontFamily: 'Anuphan-Regular',
-  //   color: COLORS.gray
-  // },
+  containerScan: {
+    flex: 1,
+    height:'100%',
+    width:'auto',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  fadingContainer: {
+    height: 500,
+    padding: 50,
+    backgroundColor: 'rgba(25, 25, 112, 0.8)',
+  },
   imageRadius: {
     width: 100,
     height: 100,
