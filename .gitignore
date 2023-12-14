@@ -64,3 +64,7 @@ yarn-error.log
 
 # testing
 /coverage
+
+# general
+App2.tsx
+/ios
