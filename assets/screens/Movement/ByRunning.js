@@ -7,11 +7,17 @@ import { SelectList } from 'react-native-dropdown-select-list'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Camera, useCameraDevice } from 'react-native-vision-camera';
 import { useRoute } from '@react-navigation/native';
+import DeviceInfo from 'react-native-device-info'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const ByRunning_Screen = ({ navigation }) => {
-    const [text_PickNo, onPickNoChange] = React.useState(null);
-    const [text_Depart, onDepartChange] = React.useState(null);
-    const [drop_Oparation, onOparationChange] = React.useState(null);
+    const [text_PickNo, onPickNoChange] = useState(null);
+    const [text_Depart, onDepartChange] = useState(null);
+    const [drop_Oparation, onOparationChange] = useState(null);
+
+    let str_localDeviceID = "localDeviceID";
+    let str_localDeviceName = "localDeviceID";
 
     const data = [
         { value: 'Mobiles' },
@@ -32,6 +38,32 @@ const ByRunning_Screen = ({ navigation }) => {
     // console.log(typeof (typeof route.params?.text_scann))
     // onPickNoChange(testValue);
 
+    const getdeviceID = async () => {
+        let uniDeviceName = await DeviceInfo.getDeviceName();
+        console.log("uniDeviceName : " + JSON.stringify(uniDeviceName));
+        let uniUniqueId = await DeviceInfo.getUniqueId();
+        console.log("uniDeviceName : %s, uniUniqueId: %s" , JSON.stringify(uniDeviceName), JSON.stringify(uniUniqueId));
+        return { 'UnitDName': uniDeviceName, 'UnitID': uniUniqueId }
+    }
+
+    const setDataLocal = async (UnitDName, UnitID) => {
+        // เช็ค deviceName ระหว่างเครื่องกับ DB ว่าชื่อนี้มี UniqueId ตรงกับมั้ย
+        if (UnitDName != null && UnitID != null) {
+            console.log("setDataLocal deviceName: %s ,deviceID: %s ", UnitDName, UnitID);
+            await AsyncStorage.setItem("set_UniDeviceName", UnitDName);
+            await AsyncStorage.setItem("set_UniId", UnitID);
+            
+            let getLoUniId = await AsyncStorage.getItem("set_UniId");
+            let getLoDevName = await AsyncStorage.getItem("set_UniDeviceName");
+            console.log('showDataLocal getLolUniId: %s, getLoDevName: %s', typeof getLoUniId, getLoDevName);
+            str_localDeviceID = getLoUniId;
+            str_localDeviceName = getLoDevName;
+            console.log('useState localDeviceID: %s, localDeviceName: %s', str_localDeviceID, str_localDeviceName);
+
+        } else {
+            console.log("else setDataLocal deviceID: %s ,deviceName: %s " + UnitID, UnitDName);
+        }
+    }
 
     // Set Camera use front or back Camera
     const device = useCameraDevice('back')
@@ -42,6 +74,11 @@ const ByRunning_Screen = ({ navigation }) => {
             // Post updated, do something with `route.params.post`
             // For example, send the post to the server
         }
+        console.log("route.params", route.params?.post);
+
+        getdeviceID().then((value) => {
+            setDataLocal(value.UnitDName, value.UnitID);
+        });
     }, [route.params?.text_scann]);
 
 
@@ -49,7 +86,7 @@ const ByRunning_Screen = ({ navigation }) => {
     const checkPermission = React.useCallback(async () => {
         const newCameraPermission = await Camera.requestCameraPermission();
         console.warn(newCameraPermission);
-        if (newCameraPermission === 'denied') await Linking.openSettings()
+        if (newCameraPermission === 'denied') await Linking.openSettings();
     }, [])
 
     // //const textScanner
@@ -87,24 +124,6 @@ const ByRunning_Screen = ({ navigation }) => {
     //     }
     // }
 
-
-    const checkTextInput = () => {
-        //Check for the Name TextInput
-        if (!textInputName.trim()) {
-          alert('Please Enter Name');
-          return;
-        }
-        //Check for the Email TextInput
-        if (!textInputEmail.trim()) {
-          alert('Please Enter Email');
-          return;
-        }
-        //Checked Successfully
-        //Do whatever you want
-        alert('Success');
-      };
-    
-
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -114,27 +133,14 @@ const ByRunning_Screen = ({ navigation }) => {
                     <Pressable onPress={() =>
                         navigation.navigate(ROUTES.BARCODE_SCANNER)}>
                         <TextInput
-                            style={[styles.txInput, { ...FONTS.body3 , color:COLORS.dark}]}
-                            // onChangeText={text => onChangeNumber(text)}
-                            // value={value}
-                            // onChangeText={text => onPickNoChange(text)}
-                            // value={text_PickNo}
-                            // onChangeText={route.params?.text_scann}
+                            style={[styles.txInput, { ...FONTS.body3, color: COLORS.dark }]}
                             onChangeText={route.params?.text_scann}
                             value={route.params?.text_scann}
                             placeholder="แตะเพื่อสแกน Pick number"
                             editable={false}
                         />
-
                     </Pressable>
-     
-
-
-
-
                 </View>
-
-                {/* <Text>Scan text : {testValue}</Text>; */}
 
                 {/* Depament. */}
                 {/* show auto query form DB */}

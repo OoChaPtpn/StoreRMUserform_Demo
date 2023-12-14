@@ -56,7 +56,6 @@ const BottomTabNavigator = () => {
                 options={{
                     headerTitle: 'Issue Slovent',
                     title: 'Solvent'
-
                 }} />
         </Tab.Navigator>
     )
