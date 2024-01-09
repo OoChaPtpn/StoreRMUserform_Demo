@@ -29,7 +29,7 @@ const Barcode_Screen = ({ navigation }) => {
         if (setTitleText !== null && titleText !== null) {
           // str_scanner= titleText
           console.log(`goBack_ `);
-          navigation.navigate(ROUTES.BY_RUNNING, { text_scann: titleText });
+          navigation.navigate(ROUTES.FILM_SELECT, { text_scann: titleText });
         }
       }
     }

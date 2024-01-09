@@ -22,11 +22,9 @@ const StackNavigator = () => {
 
       <Stack.Screen name={ROUTES.BOTTOM_TAB} component={BottomTabNavigator}
         options={{
-          headerTitle: 'Running',
-          title: 'Running',
           headerShown: false 
         }} />
-      {/*<Stack.Screen name={ROUTES.BY_RUNNING} component={ByRunning_Screen} />
+      {/* <Stack.Screen name={ROUTES.BY_RUNNING} component={ByRunning_Screen} />
       <Stack.Screen name={ROUTES.BY_PALLET} component={ByPallet_Screen} />
         <Stack.Screen name={ROUTES.FILM_SELECT} component={FilmSelect_Screen} />
         <Stack.Screen name={ROUTES.SOLVENT} component={Solvent_Screen} /> */}
