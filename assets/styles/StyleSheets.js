@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor:COLORS.light20,
   },
   containerScan: {
     flex: 1,
@@ -33,7 +34,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: COLORS.dark,
     borderRadius: SIZES.borderRadius,
-    borderTopWidth: 0,
     bottom: 15,
     right: 10,
     left: 10,
@@ -42,11 +42,32 @@ const styles = StyleSheet.create({
   },
   txInput: {
     height: 40,
-    borderColor: COLORS.grey,
-    borderWidth: 1,
+    backgroundColor:COLORS.light,
     marginTop: SIZES.margin/2.5,
     paddingLeft: SIZES.padding/3,
-  }
+    borderRadius: SIZES.borderRadius/3,
+    borderBottomColor: COLORS.input4,     // Add this to specify bottom border color
+    borderBottomWidth: 2,      // Add this to specify bottom border thickness
+
+  },
+  txInputa: {
+    height: 40,
+    backgroundColor:COLORS.light,
+    marginTop: SIZES.margin/2.5,
+    paddingLeft: SIZES.padding/3,
+    borderRadius: SIZES.borderRadius/3,
+
+  },
+  ViewInput: {
+    height: 40,
+    backgroundColor:COLORS.light,
+    marginTop: SIZES.margin/2.5,
+    paddingLeft: SIZES.padding/3,
+    borderRadius: SIZES.borderRadius/3,
+    flexDirection:'row',
+    alignItems:'center'
+
+  },
 });
 
 export default styles;
@@ -57,3 +78,11 @@ export default styles;
 // h3: 16,
 // h4: 14,
 // h5: 12,
+
+// txInput: {
+//   height: 40,
+//   borderColor: COLORS.grey,
+//   borderWidth: 1,
+//   marginTop: SIZES.margin/2.5,
+//   paddingLeft: SIZES.padding/3,
+// }

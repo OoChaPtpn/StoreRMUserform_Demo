@@ -158,7 +158,7 @@ const FilmSelect_Screen = ({ navigation }) => {
 
                 {/* Oparation */}
                 <View style={{ marginTop: SIZES.margin }}>
-                    <Text style={{ color: COLORS.dark, ...FONTS.h3, }}>ผู้ดำเนินการ {drop_Oparation}</Text>
+                    <Text style={{ color: COLORS.dark, ...FONTS.h3, }}>ผู้ดำเนินการ</Text>
                     <SelectList
 
                         onSelect={() => console.log(drop_Oparation)}

@@ -10,7 +10,7 @@ const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
     return (
         <Tab.Navigator
-            initialRouteName={ROUTES.FILM_SELECT}
+            initialRouteName={ROUTES.BY_RUNNING}   //ROUTES.FILM_SELECT
             screenOptions={({ route }) => ({
                 //ซ่อน header stack.Navigator
                 // headerShown:false,

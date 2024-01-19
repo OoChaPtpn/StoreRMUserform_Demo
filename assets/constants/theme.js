@@ -36,6 +36,7 @@ export const COLORS = {
     grey: 'rgba(160, 161, 180, 1)',
     grey80: 'rgba(160, 161, 180, 0.8)',
     grey60: 'rgba(160, 161, 180, 0.6)',
+    grey40: 'rgba(160, 161, 180, 0.4)',
     grey20: 'rgba(160, 161, 180, 0.2)',
     grey08: 'rgba(160, 161, 180, 0.08)',
 
@@ -50,6 +51,7 @@ export const COLORS = {
     light: 'rgba(255, 255, 255, 1)',
     light80: 'rgba(255, 255, 255, 0.8)',
     light60: 'rgba(255, 255, 255, 0.6)',
+    light40: 'rgba(255, 255, 255, 0.4)',
     light20: 'rgba(255, 255, 255, 0.2)',
     light08: 'rgba(255, 255, 255, 0.08)',
 
@@ -60,6 +62,11 @@ export const COLORS = {
     // Shadow
     shadow: 'rgba(138, 149, 158, 1)',
     shadow08: 'rgba(138, 149, 158, 0.08)',
+
+    //background
+    search:'rgba(231,230,226, 1)',
+    input:'rgba(232,232,232, 1)',
+    input4:'rgba(232,232,232, 1)',
 }
 
 export const SIZES = {
